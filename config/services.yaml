@@ -21,3 +21,9 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    App\Service\WeatherService:
+        arguments:
+            $resourceId: '%env(WEATHER_RESOURCE_ID)%'
+    App\Service\DataGovApiService:
+        arguments:
+            $dataGovApiUrl: '%env(DATA_GOV_API_URL)%'
