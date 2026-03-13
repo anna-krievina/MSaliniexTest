@@ -41,7 +41,7 @@ class WeatherApiController
         try {
             // asked ChatGPT about string parameters and their dangers, it's not used for SQL or file paths so this should do
             // technically the field type of station_id is text which is max 1gb data, but it is set to 4000 per Oracle recommendations and it seems reasonable
-            if (strlen($stationId) == 0 || strlen($stationId) > 4000 || !preg_match('/^[a-zA-Z0-9_-]+$/', $stationId)) {
+            if (strlen($stationId) == 0 || strlen($stationId) > 4000) {
                 return new JsonResponse(['error' => 'Invalid id'], 400);
             }
             $station = $this->weatherService->getStationInfo($stationId);
