@@ -29,7 +29,7 @@ class DataGovApiService
      * @throws ClientExceptionInterface
      */
     // API reference: https://docs.ckan.org/en/latest/maintaining/datastore.html#api-reference
-    public function DataGovAPIDatastoreSearch(string $resourceId, array $fields = [], array $query = []): array
+    public function dataGovAPIDatastoreSearch(string $resourceId, array $fields = [], array $query = []): array
     {
         // wrote '/datastore_search' in case datastore_search_sql is needed
         $response = $this->client->request('POST', $this->dataGovApiUrl . '/datastore_search',
