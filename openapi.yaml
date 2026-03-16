@@ -97,7 +97,7 @@ paths:
                                         "rank STATION_ID":
                                             type: number
                 "400": # status code
-                    description: A JSON error message if stationId is invalid (longer than 4000 characters)
+                    description: A JSON error message if stationId is invalid (longer than 4000 characters or contains whitespace)
                     content:
                         application/json:
                             schema:

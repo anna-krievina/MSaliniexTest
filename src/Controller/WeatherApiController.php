@@ -40,9 +40,11 @@ class WeatherApiController
     {
         try {
             // asked ChatGPT about string parameters and their dangers, it's not used for SQL or file paths so this should do
+            // I also considered htmlspecialchars and addslashes but in the end, the API seemed to handle SIG'*"ULDA just fine
+            // and figured it might break some hypothetical station_id, but added check for whitespace
             // technically the field type of station_id is text which is max 1gb data, but it is set to 4000 per Oracle recommendations and it seems reasonable
-            if (strlen($stationId) == 0 || strlen($stationId) > 4000) {
-                return new JsonResponse(['error' => 'Invalid id'], 400);
+            if (strlen($stationId) == 0 || strlen($stationId) > 4000 || str_contains($stationId, ' ')) {
+                return new JsonResponse(['error' => 'Invalid station id'], 400);
             }
             $station = $this->weatherService->getStationInfo($stationId);
             if (count($station) == 0) {

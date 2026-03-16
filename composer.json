@@ -66,5 +66,9 @@
             "allow-contrib": false,
             "require": "8.0.*"
         }
+    },
+    "require-dev": {
+        "symfony/maker-bundle": "^1.66",
+        "symfony/security-bundle": "8.0.*"
     }
 }

@@ -27,3 +27,6 @@ services:
     App\Service\DataGovApiService:
         arguments:
             $dataGovApiUrl: '%env(DATA_GOV_API_URL)%'
+    App\Security\ApiBearerAuthenticator:
+        arguments:
+            $apiToken: '%env(API_TOKEN)%'

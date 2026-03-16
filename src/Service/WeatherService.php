@@ -31,7 +31,8 @@ class WeatherService
     public function getAllStations(): array
     {
         $fields = ['STATION_ID', 'NAME'];
-        return $this->dataGovApiService->DataGovAPIDatastoreSearch($this->resourceId, $fields)['result']['records'] ?? [];
+        $result = $this->dataGovApiService->DataGovAPIDatastoreSearch($this->resourceId, $fields);
+        return $result['result']['records'] ?? [];
     }
 
     /**
@@ -45,6 +46,7 @@ class WeatherService
         $query = [
             'STATION_ID' => $stationId
         ];
-        return $this->dataGovApiService->DataGovAPIDatastoreSearch($this->resourceId, [], $query)['result']['records'] ?? [];
+        $result = $this->dataGovApiService->DataGovAPIDatastoreSearch($this->resourceId, [], $query);
+        return $result['result']['records'] ?? [];
     }
 }
