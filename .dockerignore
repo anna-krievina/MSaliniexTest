@@ -1,0 +1,18 @@
+# Git
+.git/
+.gitignore
+
+# Composser install (installed via dockerfile)
+vendor/
+
+# Cache/logs
+var/
+
+# Tests
+.phpunit.cache/
+
+# Environment files containing secrets
+.env.*
+
+# PHPStorm
+.idea/
