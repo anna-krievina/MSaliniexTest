@@ -26,8 +26,17 @@ for repeated runs, first do (or run without `--name m-saleniex-test`)
 docker rm m-saleniex-test
 ```
 
-**locally**, the project can be run by (with PHP 8.4 installed. it's possible that composer install needs to be run first)
-
+**locally**, the project can be run by (with PHP 8.4 and Symfony installed.)
+for first time do
+```
+composer install
+```
+and create env.dev with variables (value can be any)
+```
+APP_SECRET=
+API_TOKEN=
+```
+to run locally
 ```
 php -S localhost:8000 -t public
 ```
