@@ -31,7 +31,7 @@ class DataGovApiService
     // API reference: https://docs.ckan.org/en/latest/maintaining/datastore.html#api-reference
     public function dataGovAPIDatastoreSearch(string $resourceId, array $fields = [], array $query = []): array
     {
-        // wrote '/datastore_search' in case datastore_search_sql is needed
+        // wrote '/datastore_search' so that datastore_search_sql can have a separate function
         $response = $this->client->request('POST', $this->dataGovApiUrl . '/datastore_search',
             [
                 // Public resources require no authorization
